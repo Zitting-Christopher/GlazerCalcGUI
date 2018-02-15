@@ -6,8 +6,47 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Background="#2f5cb6"/>
+        <Border Grid.Column ="1" Background="#2f5cb6"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#2f5cb6"/>
+        <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#2f5cb6"/>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Foreground="White" Text="Window Glazer Calculator" FontSize="40" Margin="0,30,0,0" Height="100px"  ></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <TextBlock Foreground="White" FontSize="25" Margin="0,0,0,0" Height="80px" TextAlignment="Right" Text="Height:"></TextBlock>
+            <TextBlock Foreground="White" FontSize="25" Margin="0,0,0,0" Height="80px" TextAlignment="Right" Text="Width:"></TextBlock>
+            <TextBlock Foreground="White" FontSize="25" Margin="0,0,0,0" Height="80px" TextAlignment="Right" Text="Desired Color:"></TextBlock>
+            <TextBlock Foreground="White" FontSize="25" Margin="0,0,0,0" Height="80px" TextAlignment="Right" Text="Number of Windows:"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="Height" HorizontalAlignment="Left" Margin="0,0,0,40" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" PlaceholderText="Please enter a value between 0.75 and 3.0" TextChanging="Height_KeyUp"/>
+                <FontIcon Name="height_indicator" FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" HorizontalAlignment="Center" Margin="10,0,0,40" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="Width" HorizontalAlignment="Left" Margin="0,0,0,40" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" PlaceholderText="Please enter a value between 0.5 and 5.0" TextChanging="Width_KeyUp"/>
+                <FontIcon Name="width_indicator" FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" HorizontalAlignment="Center" Margin="10,0,0,40" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+                <RadioButton Name="Black" Content="Black" Height="40" Margin="0,0,0,30" FontSize="20" VerticalAlignment="Center" Width="66"/>
+                <RadioButton Name="Brown" Content="Brown" Height="40" Margin="0,0,0,30" FontSize="20" VerticalAlignment="Center" Width="66"/>
+                <RadioButton Name="Blue" Content="Blue" Height="40" Margin="0,0,0,30" FontSize="20" VerticalAlignment="Center" Width="66"/>
+            </StackPanel>
+            <Slider x:Name="Quantity" HorizontalAlignment="Left" Margin="0,0,0,40" VerticalAlignment="Center" Width="325" Minimum="1" Maximum="10" LargeChange="2" TickFrequency="1" TickPlacement="BottomRight"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="Submit" Content="Submit" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="25" Click="Submit_Click" Background="WhiteSmoke"/>
+        </StackPanel>
+        </Grid>
 </Page>
