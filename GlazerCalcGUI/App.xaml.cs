@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +31,8 @@ namespace GlazerCalcGUI
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            ApplicationView.PreferredLaunchViewSize = new Size(800, 600);
         }
 
         /// <summary>
@@ -69,6 +72,7 @@ namespace GlazerCalcGUI
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 // Ensure the current window is active
+                ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(800, 600));
                 Window.Current.Activate();
             }
         }
